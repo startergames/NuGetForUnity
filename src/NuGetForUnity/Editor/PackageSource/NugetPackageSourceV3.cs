@@ -165,6 +165,7 @@ namespace NugetForUnity.PackageSource
             if (packages.Count != 1)
             {
                 Debug.LogWarning($"Found {packages.Count} packages with id {package.Id} in source {Name} but expected 1.");
+                packages = packages.FindAll(r => r.Id == package.Id);
             }
 
             var fetchedPackage = (NugetPackageV3)packages[0];
